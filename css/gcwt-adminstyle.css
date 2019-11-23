@@ -1,0 +1,76 @@
+[v-cloak] {
+  display: none;
+}
+
+.gcwt-adminpage .tip {
+	background-color: white;
+	display: none;
+	padding: 12px;
+}
+
+.gcwt-adminpage .error {
+	color: red;
+}
+
+.gcwt-adminpage .about {
+	color: green;
+	font-size: medium;
+    font-weight: 500;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+.form-table.colors td {
+	font-size: 20px;
+}
+
+.form-table.colors tr {
+	border-bottom: 1px black solid;
+}
+
+.form-table.colors tr.last_item {
+	border-bottom: none;
+}
+
+#TB_ajaxContent {
+/*	height: 90% !important;
+	width: 90% !important;*/
+}
+
+#TB_ajaxContent .button-primary {
+	width: 200px;
+	margin-left: 37%;
+	margin-top: 30px;
+}
+
+.vue-color-picker {
+	opacity: 0.1;
+	transition: opacity 0.5s;
+}
+
+.vue-color-picker:hover {
+	opacity: 1;
+}
+
+.next_prev {
+	position: relative;
+	top: 1px;
+}
+
+.next_prev input {
+	text-align: center;
+}
+
+/* SLIDER */
+.sign {
+	font-size: 40px;
+}
+
+.separator {
+	opacity: 0;
+	color: red;
+}
+
+.url-delete, .wd_reset {
+	cursor: pointer;
+}

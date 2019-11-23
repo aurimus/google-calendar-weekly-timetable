@@ -1,0 +1,69 @@
+/* TIMETABLE STYLE */
+/* General Table settings */
+[v-cloak] {
+	display: none;
+}
+
+.gcwt {
+	padding-left: 10px;
+	padding-right: 10px;
+	border-spacing: 0px;
+	border-collapse:collapse;
+	caption-side: bottom;
+}
+
+.gcwt caption {
+	text-align: right !important;
+	margin: 0;
+}
+
+.gcwt td{
+	border: 1px #ababab solid !important;
+	padding-left: 2px !important;
+	padding-right: 2px !important;
+}
+
+.gcwt th{
+	background-color: #ababab;
+}
+
+.gcwt th, .gcwt td {
+	text-align: center !important;
+	vertical-align: middle !important;
+}
+
+.topbar {
+	position: relative;
+}
+
+.previous.week, .next.week {
+	cursor: pointer;
+	font-size: 42px;
+	text-decoration: none;
+	border-bottom: none;
+}
+
+.isLoading {
+	opacity: 0.5;
+}
+
+.selected-cal {
+	background-color: darkgrey;
+	color: white;
+}
+
+.date_range {
+	position: relative;
+	top: -4px;
+/*	left: 50%;*/
+}
+
+.date_range > span {
+/*	margin-left: -50%;
+	width: 100%;
+	display: inline-block;*/
+}
+
+caption > span {
+	font-weight: bold;
+}

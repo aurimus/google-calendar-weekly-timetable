@@ -1,0 +1,30 @@
+<div>
+	<div v-if="cycle" class="topbar">
+		<a @click="previous" class="previous week">‹‹</a>
+		<span class="date_range"><span>{{dateRange()}}</span></span>
+		<a @click="next" class="next week">››</a>
+	</div>
+	<div v-if="Object.keys(urls).length > 1">
+		<span v-for="(url, index) in urls" :class="{'selected-cal': view_opt.cal == url.name}" @click="doFetch({start: view_opt.start, cal: url.name})">{{url.name}}</span>
+	</div>
+	<table :class="{isLoading: loading}" v-cloak class="gcwt" :style="table_style">
+		<caption v-html="caption"></caption>
+		<tr>
+ 			<th></th>
+			<th v-for="wday in weekdays">{{moment().isoWeekday(wday).format(weekday_name)}}</th>
+		</tr>
+		<tr v-for="row in $options.filters.getTimeWithWeek(table)">
+			<td :style="{'background-color': highlight(row.time)}">{{row.time | format_time}}</td>
+			<td v-for="cell in $options.filters.getWeek(row.week, weekdays)" 
+		    	v-if="cell.rowspan !== 0" 
+				:rowspan="cell.rowspan"
+				:style="{'background-color': colors[cell.summary]}"
+				@mouseover="onEventHover(cell)"
+				@mouseout="onEventUnhover">
+		    		<span class="gcwt-event" v-if="cell.summary" :title=" ((cell.description) ? cell.description + '. ' : '') + $options.filters.format_time(cell.starttime) + ' - ' + $options.filters.format_time(cell.endtime)">
+		    		    {{cell.summary}}
+		    	    </span>
+		 	</td>
+		</tr>
+	</table>
+</div>
