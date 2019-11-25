@@ -27,7 +27,6 @@ window.addEventListener('load', function() {
 					start: (this.timetableAttrs['start'] != null) ? moment(this.timetableAttrs['start']): moment().hours(0).minutes(0).seconds(0).day(this.timetableAttrs['week_start']),
 					cal: this.timetableAttrs['urls'][0]['name']
 				},
-				// week_start: moment().hours(0).minutes(0).seconds(0).day(this.timetableAttrs['week_start']),
 				weekdays: this.timetableAttrs['weekdays'],
 				time_format: this.timetableAttrs['time_format'],
 				table_style: this.timetableAttrs['style'],

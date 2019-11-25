@@ -103,7 +103,6 @@ if(!class_exists('Google_Calendar_Weekly_Timetable')){
 		    update_option(GENERAL_SETTINGS, $settings);
 
 			add_option('gcwt-colors', array());
-			add_option('gcwt-trial_start', time());
 			add_option('gcwt-urls', array());
 		}
 
@@ -241,7 +240,7 @@ if(!class_exists('Google_Calendar_Weekly_Timetable')){
 			        'urls' => get_option('gcwt-urls')
 			    ]));
 
-				return "<timetable class='gcwt instance' :timetable-attrs='$atts' />";
+				return "<timetable class='gcwt instance' :timetable-attrs='$atts'></timetable>";
 				 
 	
 			} else {
