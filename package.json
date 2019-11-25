@@ -1,0 +1,24 @@
+{
+  "name": "google-calendar-weekly-timetable",
+  "version": "3.0.0",
+  "description": "iCalendar timetable plugin for Wordpress",
+  "main": " ",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aurimus/google-calendar-weekly-timetable.git"
+  },
+  "author": "aurimus",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aurimus/google-calendar-weekly-timetable/issues"
+  },
+  "homepage": "https://github.com/aurimus/google-calendar-weekly-timetable#readme",
+  "dependencies": {
+    "moment": "^2.24.0",
+    "vue": "^2.5.22",
+    "vue-color": "^2.7.0"
+  }
+}

@@ -111,6 +111,11 @@ if(!class_exists('Google_Calendar_Weekly_Timetable')){
 			//Load text domain for i18n
 			load_plugin_textdomain(GCWT_TEXT_DOMAIN, false, dirname(plugin_basename(__FILE__)) . '/languages/');
 			if(get_option('timezone_string') != '') date_default_timezone_set(get_option('timezone_string'));
+
+			wp_register_script('momentjs', plugins_url('/node_modules/moment/min/moment-with-locales.js', __FILE__) );
+			wp_register_script('vue', plugins_url('/node_modules/vue/dist/vue.js', __FILE__), ['momentjs'], '2.5.22' );
+			wp_register_script('vue-color', plugins_url('/node_modules/vue-color/dist/vue-color.min.js', __FILE__), ['vue'], '2.7.0');
+
 		}
 
 		//Adds 'Settings' link to main WordPress Plugins page
@@ -158,11 +163,11 @@ if(!class_exists('Google_Calendar_Weekly_Timetable')){
 
 			$settings = get_option(GENERAL_SETTINGS);
 
-			wp_enqueue_script('gcwt_momentjs', plugins_url('/js/dep/moment-with-locales.min.js', __FILE__) );
-			wp_enqueue_script('vue', plugins_url('/js/dep/vue.min.js', __FILE__), ['gcwt_momentjs'], '2.6.10' );
-			wp_enqueue_script('vue-color', plugins_url('/js/dep/vue-color.min.js', __FILE__), ['vue'], '2.7.0');
+			wp_enqueue_script('momentjs');
+			wp_enqueue_script('vue');
+			wp_enqueue_script('vue-color');
 			wp_enqueue_style( 'settings_css', plugins_url('/css/gcwt-adminstyle.css', __FILE__) );
-			wp_enqueue_script('settings_script', plugins_url('/js/gcwt-settings.js', __FILE__), ['vue', 'gcwt_momentjs']);
+			wp_enqueue_script('settings_script', plugins_url('/js/gcwt-settings.js', __FILE__), ['vue', 'momentjs']);
 			wp_add_inline_script('settings_script', 'window.locale = "' . $settings['language'] . '"');
 			wp_add_inline_script('settings_script', 'window.cycle = "' . $settings['cycle'] . '"');
 		}
@@ -173,8 +178,8 @@ if(!class_exists('Google_Calendar_Weekly_Timetable')){
 			$settings = get_option(GENERAL_SETTINGS);
 			// Only enqueue scripts if we're displaying a post that contains the shortcode
 			if( has_shortcode( $post->post_content, $this->shortcode_name ) ) {
-				wp_enqueue_script('gcwt_momentjs', plugins_url('/js/dep/moment-with-locales.min.js', __FILE__) );
-				wp_enqueue_script('vue', plugins_url('/js/dep/vue.min.js', __FILE__), ['gcwt_momentjs'], '2.6.10');
+				wp_enqueue_script('momentjs');
+				wp_enqueue_script('vue');
 				wp_enqueue_style('gcwt_frontend_style', plugins_url('/css/gcwt-style.css', __FILE__) );
 				wp_enqueue_script('gcwt_frontend_script', plugins_url('/js/gcwt-frontend.js', __FILE__) );
 				wp_add_inline_script('gcwt_frontend_script', 'window.ajaxurl = "' . admin_url( 'admin-ajax.php' ) . '"', 'before');
