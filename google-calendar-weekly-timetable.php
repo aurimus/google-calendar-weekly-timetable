@@ -158,11 +158,11 @@ if(!class_exists('Google_Calendar_Weekly_Timetable')){
 
 			$settings = get_option(GENERAL_SETTINGS);
 
-			wp_enqueue_script('gcwt_momentjs', WP_PLUGIN_URL . '/' . GCWT_PLUGIN_NAME . '/js/dep/moment-with-locales.min.js');
-			wp_enqueue_script('vue', WP_PLUGIN_URL . '/' . GCWT_PLUGIN_NAME . '/js/dep/vue.min.js', ['gcwt_momentjs'], '2.5.22');
-			wp_enqueue_script('vue-color', WP_PLUGIN_URL . '/' . GCWT_PLUGIN_NAME . '/js/dep/vue-color.min.js', ['vue'], '2.7.0');
+			wp_enqueue_script('gcwt_momentjs', plugins_url('/js/dep/moment-with-locales.min.js', __FILE__) );
+			wp_enqueue_script('vue', plugins_url('/js/dep/vue.min.js', __FILE__), ['gcwt_momentjs'], '2.6.10' );
+			wp_enqueue_script('vue-color', plugins_url('/js/dep/vue-color.min.js', __FILE__), ['vue'], '2.7.0');
 			wp_enqueue_style( 'settings_css', plugins_url('/css/gcwt-adminstyle.css', __FILE__) );
-			wp_enqueue_script('settings_script', WP_PLUGIN_URL . '/' . GCWT_PLUGIN_NAME . '/js/gcwt-settings.js', ['vue', 'gcwt_momentjs']);
+			wp_enqueue_script('settings_script', plugins_url('/js/gcwt-settings.js', __FILE__), ['vue', 'gcwt_momentjs']);
 			wp_add_inline_script('settings_script', 'window.locale = "' . $settings['language'] . '"');
 			wp_add_inline_script('settings_script', 'window.cycle = "' . $settings['cycle'] . '"');
 		}
@@ -173,16 +173,16 @@ if(!class_exists('Google_Calendar_Weekly_Timetable')){
 			$settings = get_option(GENERAL_SETTINGS);
 			// Only enqueue scripts if we're displaying a post that contains the shortcode
 			if( has_shortcode( $post->post_content, $this->shortcode_name ) ) {
-				wp_enqueue_script('gcwt_momentjs', WP_PLUGIN_URL . '/' . GCWT_PLUGIN_NAME . '/js/dep/moment-with-locales.min.js');
-				wp_enqueue_script('vue', WP_PLUGIN_URL . '/' . GCWT_PLUGIN_NAME . '/js/dep/vue.min.js', ['gcwt_momentjs'], '2.5.22');
-				wp_enqueue_style('gcwt_frontend_style', WP_PLUGIN_URL . '/' . GCWT_PLUGIN_NAME . '/css/gcwt-style.css');
-				wp_enqueue_script('gcwt_frontend_script', WP_PLUGIN_URL . '/' . GCWT_PLUGIN_NAME . '/js/gcwt-frontend.js');
+				wp_enqueue_script('gcwt_momentjs', plugins_url('/js/dep/moment-with-locales.min.js', __FILE__) );
+				wp_enqueue_script('vue', plugins_url('/js/dep/vue.min.js', __FILE__), ['gcwt_momentjs'], '2.6.10');
+				wp_enqueue_style('gcwt_frontend_style', plugins_url('/css/gcwt-style.css', __FILE__) );
+				wp_enqueue_script('gcwt_frontend_script', plugins_url('/js/gcwt-frontend.js', __FILE__) );
 				wp_add_inline_script('gcwt_frontend_script', 'window.ajaxurl = "' . admin_url( 'admin-ajax.php' ) . '"', 'before');
 				wp_add_inline_script('gcwt_frontend_script', 'window.global_settings_data = ' . json_encode($settings), 'before');
 
 				$current_user = wp_get_current_user();
 				if (user_can( $current_user, 'administrator' )) {
-					wp_enqueue_script('gcwt_frontend_colors', WP_PLUGIN_URL . '/' . GCWT_PLUGIN_NAME . '/js/gcwt-colors.js');
+					wp_enqueue_script('gcwt_frontend_colors', plugins_url('/js/gcwt-colors.js', __FILE__) );
 				}
 			}
 		}
