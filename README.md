@@ -11,7 +11,7 @@ Here's two ways to do it (first delete current plugin and the last step is to ac
 1. Log in to the server and navigate to your WordPress plugins folder
 2. Type `git clone https://github.com/aurimus/google-calendar-weekly-timetable.git`
 3. `cd google-calendar-weekly-timetable`
-3. Follow [these instructions](https://www.ionos.com/community/hosting/php/install-and-use-php-composer-on-ubuntu-1604/) (or equivalent) to install composer (if you don't have it) and run `composer install`
+3. Follow [these instructions](https://www.ionos.com/community/hosting/php/install-and-use-php-composer-on-ubuntu-1604/) (or equivalent) to install composer (if you don't have it) and run `composer install`, do the same with `npm install`
 
 ### Using FTP
 
