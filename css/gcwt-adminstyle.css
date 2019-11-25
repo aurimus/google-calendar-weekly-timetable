@@ -5,6 +5,7 @@
 .gcwt-adminpage .tip {
 	background-color: white;
 	display: none;
+	position: fixed;
 	padding: 12px;
 }
 
@@ -67,7 +68,7 @@
 }
 
 .separator {
-	opacity: 0;
+	/*opacity: 0;*/
 	color: red;
 }
 
