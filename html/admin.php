@@ -1,10 +1,8 @@
 <?php 
     $settings = get_option(GENERAL_SETTINGS);
     $urls = get_option('gcwt-urls');
-    $trial_start = get_option('gcwt-trial_start');
 
     $languages = ["en", "af", "ar-dz", "ar-kw", "ar-ly", "ar-ma", "ar-sa", "ar-tn", "ar", "az", "be", "bg", "bm", "bn", "bo", "br", "bs", "ca", "cs", "cv", "cy", "da", "de-at", "de-ch", "de", "dv", "el", "en-au", "en-ca", "en-gb", "en-ie", "en-il", "en-nz", "eo", "es-do", "es-us", "es", "et", "eu", "fa", "fi", "fo", "fr-ca", "fr-ch", "fr", "fy", "gd", "gl", "gom-latn", "gu", "he", "hi", "hr", "hu", "hy-am", "id", "is", "it", "ja", "jv", "ka", "kk", "km", "kn", "ko", "ky", "lb", "lo", "lt", "lv", "me", "mi", "mk", "ml", "mn", "mr", "ms-my", "ms", "mt", "my", "nb", "ne", "nl-be", "nl", "nn", "pa-in", "pl", "pt-br", "pt", "ro", "ru", "sd", "se", "si", "sk", "sl", "sq", "sr-cyrl", "sr", "ss", "sv", "sw", "ta", "te", "tet", "tg", "th", "tl-ph", "tlh", "tr", "tzl", "tzm-latn", "tzm", "ug-cn", "uk", "ur", "uz-latn", "uz", "vi", "x-pseudo", "yo", "zh-cn", "zh-hk", "zh-tw"];
-    add_thickbox();
 ?>
 
 <script type="text/javascript">
@@ -21,15 +19,17 @@
 	})
 </script>
 
-<div v-cloak class="wrap gcwt-adminpage" id="vue_settings_app" data-settings-atts="<?= esc_attr(json_encode($settings)) ?>" data-urls="<?= esc_attr(json_encode($urls)) ?>" data-trial_start="<?= esc_attr(json_encode($trial_start)) ?>" data-langs="<?= esc_attr(json_encode($languages)) ?>">
+<div v-cloak class="wrap gcwt-adminpage" id="vue_settings_app" 
+	data-settings-atts="<?= esc_attr(json_encode($settings)) ?>" 
+	data-urls="<?= esc_attr(json_encode($urls)) ?>"
+	data-langs="<?= esc_attr(json_encode($languages)) ?>">
 
 	<h1><?php _e('iCalendar Timetable BETA', GCWT_TEXT_DOMAIN); ?></h1>
-	<span v-if="!codeConfirmed"><input type="text" name="code" @paste="confirmCode"></span>
 	
 		<div class="setting">
 			<h3><?php _e('Calendar ICS', GCWT_TEXT_DOMAIN); ?></h3>
 			<div class="main_part">
-				<input placeholder="Paste your .ics URL from the web (e.g. Google Calendar) here" id="url" type="text" size="100" @paste="onUrlPaste"/>
+				<input placeholder="Paste your .ics URL from the web (e.g. Google Calendar) here" id="url" type="text" @paste="onUrlPaste"/>
 				<div v-if="error">
 					Error: <span class="error">{{ error }}</span>
 				</div>

@@ -87,7 +87,7 @@ if(!class_exists('Google_Calendar_Weekly_Timetable')){
 				'weekdays' => array([]),
 				'time_format' => 'HH:mm',
 				'style' => array('color' => '#444444', 'table-layout' => 'fixed', 'font-size' => '12px'),
-				'caption_text' => ' ',
+				'caption_text' => 'Hover over event to show more info',
 				'cache_duration' => 1,
 				'language' => 'en',
 				'weekday_name' => 'ddd'
@@ -251,19 +251,6 @@ if(!class_exists('Google_Calendar_Weekly_Timetable')){
 
 
 		// **** API **** //
-
-		function confirm_code(){
-			$code = json_decode(file_get_contents("php://input"), true);
-
-			if (md5($code) == '373a4bffc27fadedd20649730c9a92dc') {
-				update_option('gcwt-trial_start', 0);
-				exit(json_encode(['status' => 'ok']));
-			} else {
-		    	exit( json_encode(array('error' => md5($code))) );
-			}
-
-		}
-
 
 		function fetch_table_data(){
 			$settings = get_option(GENERAL_SETTINGS);

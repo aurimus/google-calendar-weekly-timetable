@@ -5,7 +5,6 @@ window.onload = function() {
 	var settings_data  = JSON.parse(data_el.dataset.settingsAtts)
 	var settings_urls  = JSON.parse(data_el.dataset.urls)
 	var settings_langs  = JSON.parse(data_el.dataset.langs)
-	var trial_start  = JSON.parse(data_el.dataset.trial_start)
 
 	Vue.component('weekdays', {
 		data() {
@@ -28,15 +27,10 @@ window.onload = function() {
 
 	var vue_settings = new Vue({
 		el: "#vue_settings_app",
-		components: {
-			'slider-picker': VueColor.Slider
-		},
 		data: function() {
 			return {
 				events: {},
 				error: '',
-				codeConfirmed: trial_start == 0 ? true : false,
-				// text_color: document.getElementById('text_color').value,
 				locale: settings_data.language,
 				langs: settings_langs,
 				weekdays: settings_data.weekdays.slice(0),
@@ -101,35 +95,7 @@ window.onload = function() {
 	    	  	return
 	    	  }
   	    }.bind(this) ); 
-			},
-			confirmCode: function(evt){
-				var patreoncode = evt.clipboardData.getData('Text')
-				fetch(window.ajaxurl + '?action=confirm_code', {
-		    	method: 'POST',
-		    	body: JSON.stringify(patreoncode),
-		    	headers: {'Content-Type': 'application/json'},
-		    }).then(function(response){
-		    	if (response.ok) {
-		    	  return response.json() 
-		    	} else {
-		    		return {error: response.status}
-		    	}
-		    }).then(function(json) {
-	    	  if (json.error) {
-	    	  	alert('Something went wrong, try again or contact me if it persist 4urimas@gmail.com')
-	    	  	return
-	    	  } else {
-	    	  	this.codeConfirmed = true
-	    	  	alert('Thank You so much!')
-	    	  }
-  	    }.bind(this) );
 			}
-		},
-		mounted: function() {
-			// var url_input = document.querySelector('#url')
-			// if (url_input.value.length > 0) {
-			// 	this.onUrlUpdate()
-			// }
 		}
 	})
 

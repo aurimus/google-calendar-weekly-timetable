@@ -12,18 +12,13 @@
 	caption-side: bottom;
 }
 
-.gcwt caption {
-	text-align: right !important;
-	margin: 0;
-}
-
-.gcwt td{
+.gcwt td {
 	border: 1px #ababab solid !important;
 	padding-left: 2px !important;
 	padding-right: 2px !important;
 }
 
-.gcwt th{
+.gcwt th {
 	background-color: #ababab;
 }
 
@@ -32,38 +27,43 @@
 	vertical-align: middle !important;
 }
 
-.topbar {
+.gcwt .topbar {
 	position: relative;
 }
 
-.previous.week, .next.week {
+.gcwt .previous.week, .next.week {
 	cursor: pointer;
 	font-size: 42px;
 	text-decoration: none;
 	border-bottom: none;
 }
 
-.isLoading {
+.gcwt .isLoading {
 	opacity: 0.5;
 }
 
-.selected-cal {
+.gcwt .selected-cal {
 	background-color: darkgrey;
 	color: white;
 }
 
-.date_range {
+.gcwt .date_range {
 	position: relative;
 	top: -4px;
 /*	left: 50%;*/
 }
 
-.date_range > span {
+.gcwt .date_range > span {
 /*	margin-left: -50%;
 	width: 100%;
 	display: inline-block;*/
 }
 
-caption > span {
+.gcwt caption {
+	text-align: right !important;
+	margin: 0;
+}
+
+.gcwt caption > span {
 	font-weight: bold;
 }
