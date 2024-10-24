@@ -18,7 +18,7 @@
   "homepage": "https://github.com/aurimus/google-calendar-weekly-timetable#readme",
   "dependencies": {
     "moment": "^2.24.0",
-    "vue": "^2.5.22",
+    "vue": "^3.0.0",
     "vue-color": "^2.7.0"
   }
 }
